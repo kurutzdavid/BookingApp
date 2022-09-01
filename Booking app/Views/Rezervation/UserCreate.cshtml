@@ -1,0 +1,43 @@
+﻿@model BookingApp.Models.UserRezervationVM
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UserCreate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="DayIn" class="control-label"></label>
+                <input asp-for="DayIn" class="form-control" />
+                <span asp-validation-for="DayIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DayOut" class="control-label"></label>
+                <input asp-for="DayOut" class="form-control" />
+                <span asp-validation-for="DayOut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomID" class="control-label"></label>
+                <input asp-for="RoomID" class="form-control" />
+                <span asp-validation-for="RoomID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary col-md-12" style="margin: 5% 0 5% 0" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="UserIndex" class="btn btn-primary btn-sm">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

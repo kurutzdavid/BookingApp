@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BookingApp.Models.RoomTypeVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Room Types</h1>
+
+<p>
+    <a asp-action="Create"class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Create New</a>
+</p>
+<table id="tblData" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                <a asp-action="Edit"  class="btn btn-primary btn-sm" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details"  class="btn btn-primary btn-sm" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete"  class="btn btn-primary btn-sm" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
